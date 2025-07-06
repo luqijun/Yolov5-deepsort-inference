@@ -10,7 +10,7 @@ def main():
     name = 'demo'
 
     det = Detector()
-    cap = cv2.VideoCapture('E:/视频/行人监控/test01.mp4')
+    cap = cv2.VideoCapture('./test.mp4')
     fps = int(cap.get(5))
     print('fps:', fps)
     t = int(1000/fps)
@@ -35,12 +35,13 @@ def main():
                 'result.mp4', fourcc, fps, (result.shape[1], result.shape[0]))
 
         videoWriter.write(result)
-        cv2.imshow(name, result)
+        # cv2.imshow(name, result)
         cv2.waitKey(t)
 
-        if cv2.getWindowProperty(name, cv2.WND_PROP_AUTOSIZE) < 1:
-            # 点x退出
-            break
+        # if cv2.getWindowProperty(name, cv2.WND_PROP_AUTOSIZE) < 1:
+        #     # 点x退出
+        #     break
+
         # except Exception as e:
         #     print(e)
         #     break
